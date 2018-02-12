@@ -1,12 +1,13 @@
-<% @travel.points.each do |e| %>
-  <div>
-  <%= e.id %>
-  <script>
-    var url = "|<%=e.latitude%>,<%=e.longitude%>";
-  </script>
-  <%= e.latitude %>
-  <%= e.longitude %>
+<script>
+ var url = "";
+</script>
+<div class="container">
+  <h3>This is the way you followed when you went to <%= @travel.title %></h3>
 </div>
+<% @travel.points.each do |e| %>
+  <script>
+    url += "|<%=e.latitude%>,<%=e.longitude%>";
+  </script>
 <% end %>
 <script >
 $(document).ready(function(){
