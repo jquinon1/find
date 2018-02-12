@@ -1,8 +1,18 @@
 <h1>Travels by <%= current_user.name %></h1>
 
 <% @travels.each do |travel| %>
-<div class="container">
-  <%= travel.title %>
-  <%= travel.done %>
+ <% if travel.done %>
+<div class="card">
+  <!-- <img class="card-img-top" src="..." alt="Card image cap"> -->
+  <div class="card-body">
+    <h5 class="card-title">  <%= travel.title %> </h5>
+    <%= link_to 'Show', user_travel_url(current_user.id,travel.id), class: "btn btn-primary" %>
+    <%= link_to 'Destroy', user_travel_url(current_user.id,travel.id), class: "btn btn-danger",
+                    method: :delete, data: { confirm: 'Are you sure?' } %>
+    <!-- <a href="#" class="btn btn-primary">Go somewhere</a> -->
+  </div>
 </div>
+<div class="container">
+</div>
+<% end %>
 <% end %>

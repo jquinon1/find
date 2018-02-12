@@ -27,8 +27,9 @@ class TravelsController < ApplicationController
     redirect_to new_user_travel_url
   end
 
-  def delete
+  def destroy
     @travel.destroy
+    redirect_to user_travels_path
   end
 
   private
