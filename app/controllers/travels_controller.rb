@@ -1,12 +1,21 @@
 class TravelsController < ApplicationController
-  before_action :set_travel, only: [:show, :update, :destroy]
-
+    before_action :set_travel, only: [:show, :update, :destroy]
+    #before_action :authorize
   def index
-    @travels = Travel.all
+    user = current_user
+    @travels = user.travels
+  end
+
+  def new
+    @last = Travel.last
+    @travel = current_user.travels.build
   end
 
   def create
-    @travel = Travel.create!(travel_params)
+    @travel = current_user.travels.create!(travel_params)
+    @id_travel = @travel.id
+    @done = false
+    redirect_to new_user_travel_url
   end
 
   def show
@@ -15,6 +24,7 @@ class TravelsController < ApplicationController
 
   def update
     @travel.update(travel_params)
+    redirect_to new_user_travel_url
   end
 
   def delete
@@ -28,6 +38,6 @@ class TravelsController < ApplicationController
   end
 
   def travel_params
-    params.permit(:title,:created_by,:done)
+    params.require(:travel).permit(:title,:done)
   end
 end

@@ -1,0 +1,8 @@
+<h1>Travels by <%= current_user.name %></h1>
+
+<% @travels.each do |travel| %>
+<div class="container">
+  <%= travel.title %>
+  <%= travel.done %>
+</div>
+<% end %>

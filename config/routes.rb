@@ -1,8 +1,11 @@
 Rails.application.routes.draw do
-  root to: 'welcome#index'
 
+  root to: 'welcome#index'
+  resources :sessions
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
-  resources :travels do
-    resources :points, only: [:index,:new,:create]
+  resources :users do
+    resources :travels do
+      resources :points, only: [:index,:new,:create]
+    end
   end
 end
