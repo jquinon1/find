@@ -36,7 +36,7 @@
   <% end %>
 <% end %>
 
-<% if current_user and ( @last.done == false or @notDone ) %>
+<% if current_user and ( (@last && @last.done == false) or @notDone ) %>
 <script type="text/javascript">
 function myMap() {
   // Try HTML5 geolocation.
