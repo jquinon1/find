@@ -23,5 +23,5 @@ test:
 production:
   adapter: postgresql
   encoding: utf8
-  database: find_database
+  database: de5bo4g1bm3ki7
   pool: 5
