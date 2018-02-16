@@ -22,4 +22,8 @@ test:
 
 production:
   adapter: postgresql
+  encoding: utf8
   database: find_database
+  pool: 5
+  username: jquinon1
+  password:
