@@ -25,5 +25,5 @@ production:
   encoding: utf8
   database: find_database
   pool: 5
-  username: jquinon1
+  username: find
   password:
