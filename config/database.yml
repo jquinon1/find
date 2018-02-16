@@ -25,3 +25,5 @@ production:
   encoding: utf8
   database: de5bo4g1bm3ki7
   pool: 5
+  username: btaodleodzmvmi
+  password: e291f129008d5923c10ae4dab1c998338bd0b8aa91a421bba134c8f5230e16bc
