@@ -36,40 +36,35 @@
   <% end %>
 <% end %>
 
-<script type="text/javascript">
 <% if current_user and ( @last.done == false or @notDone ) %>
-console.log("sending");
-
-$.ajax({
-  url: "http://localhost:3000/users/<%= current_user.id%>/travels/<%= @last.id %>/points",
-  type: "POST",
-  data: {points: {
-    latitude: '6.217',
-    longitude: '-75.567'}},
-    success: function(resp){
-    location.reload();
-    // this.send();
-  }
-  });
-
-  <% end %>
+<script type="text/javascript">
 function myMap() {
   // Try HTML5 geolocation.
+  console.log("sending");
   if (navigator.geolocation) {
     navigator.geolocation.getCurrentPosition(function(position) {
-      var pos = {
-        lat: position.coords.latitude,
-        lng: position.coords.longitude
-      };
+      $.ajax({
+        url: "http://localhost:3000/users/<%= current_user.id%>/travels/<%= @last.id %>/points",
+        type: "POST",
+        data: {points: {
+          latitude: position.coords.latitude,
+          longitude: position.coords.longitude }},
+          success: function(resp){
+            location.reload();
+            // this.send();
+          }
+        });
     });
   } else {
     // Browser doesn't support Geolocation
-    console.log("this shit is not suppported");
+    alert("location is not suppported");
   }
 }
+
 
 </script>
 
 
 <script async defer
-src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDwPHhFoPYRvAhLmHRQxJ42Tv6A5LM72vs&callback=myMap"></script>
+src="https://maps.googleapis.com/maps/api/js?key=AIzaSyClM3z3tp5qrlHSEXfuyaKtFUhzMX7KYiM&callback=myMap"></script>
+  <% end %>
