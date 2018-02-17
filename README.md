@@ -49,54 +49,56 @@ Aplicación web que permite registrar los recorridos realizados por un usuario.
 
 ## 2.2 Servicios Web
 
-/* 
-  Servicio Web: Crear un nuevo viaje
-  Método: POST
-  URI: /users/:user_id/travels/new
-*/
+    /* 
+        Servicio Web: Crear un nuevo viaje
+        Método: POST
+        URI: /users/:user_id/travels/new
+    */
 
-/* 
-  Servicio Web: Listar todos los viajes realizados por un usuario
-  Método: GET
-  URI: /users/:user_id/travel
-*/
+     /* 
+        Servicio Web: Listar todos los viajes realizados por un usuario
+        Método: GET
+        URI: /users/:user_id/travel
+     */
 
- /* 
-  Servicio Web: Borra un Articulo de la Base de datos.
-  Método: DELETE
-  URI: /users/:user_id/travels/:id
- */
+      /* 
+        Servicio Web: Borra un Articulo de la Base de datos.
+        Método: DELETE
+        URI: /users/:user_id/travels/:id
+      */
 
 # 3. Despligue en un Servidor Centos 7.x en el DCA
 
 ## Install ruby (2.5.0) y rails (5.1.4)
   Para esto se sugiere utilizar un manejador de versiones (RVM)
 ### Instalar RVM con ruby and rails
-*/
-  \curl -sSL https://get.rvm.io | bash
- /*
- Ahora ejecutamos los siguientes comandos 
- */
-    rvm 2.5.0
-    rvm gemset create rails-5.1.4
-    rvm gemset use 2.5.0@rails-5.1.4
-    gem install rails -v '5.1.4'
-  /*
+    /*
+        \curl -sSL https://get.rvm.io | bash
+    /*
+    
+ Ahora ejecutamos los siguientes comandos.
+        
+     /*
+        rvm 2.5.0
+        rvm gemset create rails-5.1.4
+        rvm gemset use 2.5.0@rails-5.1.4
+        gem install rails -v '5.1.4'
+     /*
   
 ### Instalar apache y configurarlo
 
-  */
+    /*
     yum install httpd
     systemctl enable httpd
     systemctl start httpd
-  /*
+    /*
   
 ### Configurar firewall
 
-  */
+    /*
     firewall-cmd --permanent --add-port=80/tcp
     firewall-cmd --reload
-  /*
+    /*
 
 # 4. Despliege en Heroku
 
@@ -112,7 +114,7 @@ Aplicación web que permite registrar los recorridos realizados por un usuario.
 
 Queda en producción en:
 
-            https://find-telematica.herokuapp.com/
+       https://find-telematica.herokuapp.com/
 
 /////
 
