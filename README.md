@@ -27,34 +27,25 @@ Aplicación web que permite registrar los recorridos realizados por un usuario.
 
 ## 2.1 Modelo de datos:
 
-user:
+    user:
+    {
+    name: String,
+    email: String,
+    password: Encrypted
+    }
 
-{
-
-  name: String,
-  email: String,
-  password: Encrypted
-
-}
-
-travels:
-
-{
-
+    travels:
+    {
     title: String,
     created_by: String, -> Reference to UID
-    
-}
+    }
 
-points:
-
-{
-
-  latitude: String,
-  longitude: String,
-  travel_id: Number
-  
-}
+    points:
+    {
+    latitude: String,
+    longitude: String,
+    travel_id: Number
+    }
 
 ## 2.2 Servicios Web
 
