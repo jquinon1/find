@@ -72,33 +72,32 @@ Aplicación web que permite registrar los recorridos realizados por un usuario.
 ## Install ruby (2.5.0) y rails (5.1.4)
   Para esto se sugiere utilizar un manejador de versiones (RVM)
 ### Instalar RVM con ruby and rails
-    /*
+  
         \curl -sSL https://get.rvm.io | bash
-    /*
     
  Ahora ejecutamos los siguientes comandos.
         
-     /*
         rvm 2.5.0
         rvm gemset create rails-5.1.4
         rvm gemset use 2.5.0@rails-5.1.4
         gem install rails -v '5.1.4'
-     /*
-  
+        
 ### Instalar apache y configurarlo
 
-    /*
     yum install httpd
     systemctl enable httpd
     systemctl start httpd
-    /*
-  
+
 ### Configurar firewall
 
-    /*
     firewall-cmd --permanent --add-port=80/tcp
     firewall-cmd --reload
-    /*
+
+### Instalar Postgresql
+      yum install postgresql-server postgresql-contrib postgresql-devel
+      systemctl start postgresql
+      systemctl enable postgresql
+   Cambie la configuraction de config/database.yml e indique el gestor de base de datos y el usuario en el entorno de pruebas.
 
 # 4. Despliege en Heroku
 
